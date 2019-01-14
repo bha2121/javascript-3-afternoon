@@ -30,7 +30,17 @@
 */
 
 //Code Here
-
+class Employee{
+   constructor (first_name, last_name, email, age){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+   }
+    makeWidget(){
+    return this.first_name + " " + this.last_name + " " + "Widget";
+   };
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -50,6 +60,21 @@
 */
 
 //Code Here
+class Manager{
+  constructor (first_name, last_name, email, age, reports){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+  };
+  hire(newEmployee){
+    this.reports.push(newEmployee);
+  };
+  fire(index){
+    this.reports.splice(index,1);
+  };
+};
 
 
 
@@ -76,6 +101,51 @@
 */
 
 //Code Here
+class ProgressiveManager {
+  constructor (first_name, last_name, email, age, reports, title, bonus){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+    this.title = 'Not a manager'
+    this.bonus = 0
+  };
+  hire(newEmployee){
+    this.reports.push(newEmployee)
+    this.myTitle();
+    };
+  fire(index){
+    this.reports.splice(index,1)
+    this.myTitle();
+    this.myBonus();
+  };
+  myTitle(){
+    var reportNumber = this.reports.length;
+    if (reportNumber === 0){
+      this.title = 'Not a manager';
+    }
+    if (reportNumber >= 1 && reportNumber <=3){
+      this.title = 'Barely Manager';
+    }
+    if (reportNumber >=4 && reportNumber <=10){
+      this.title = 'Mostly Manager';
+    }
+    if (reportNumber >=11 && reportNumber <=50){
+      this.title = 'Manager';
+    }
+    if (reportNumber >=51 && reportNumber <=100){
+      this.title = 'Manager Plus';
+    }
+    if (reportNumber >=101){
+      this.title = 'Bestest Manager';
+    }     
+  };
+  myBonus(){
+    this.bonus += 100;
+  }
+};
+
 
 
 
@@ -103,5 +173,17 @@
 */
 
 //Code Here
-
+class Machine {
+  constructor (){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  makeWidgets(num){
+    this.widgets_made_count + num;
+    if (this.widgets_made_count %50 === 0){
+      this.widgets_made_count + 1
+    };
+   };
+}
 
